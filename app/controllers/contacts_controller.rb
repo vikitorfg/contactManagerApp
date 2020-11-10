@@ -1,5 +1,6 @@
 class ContactsController < ApplicationController
   before_action :set_contact, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /contacts
   # GET /contacts.json
@@ -25,6 +26,7 @@ class ContactsController < ApplicationController
   # POST /contacts
   # POST /contacts.json
   def create
+    byebug
     @contact = Contact.new(contact_params)
 
     respond_to do |format|
@@ -70,6 +72,6 @@ class ContactsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def contact_params
-      params.require(:contact).permit(:name)
+      params.require(:contact).permit(:name, :user_id)
     end
 end
