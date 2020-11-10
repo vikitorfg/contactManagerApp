@@ -4,6 +4,11 @@
   <strong>Name:</strong>
   <%= @contact.name %>
 </p>
+<p>
+  <strong>id:</strong>
+  <%= @contact.id %>
+</p>
+<%= link_to 'New contact information', new_information_path(:new_contact_id => { :contact_id  => @contact.id}) %>
 
 <%= link_to 'Edit', edit_contact_path(@contact) %> |
 <%= link_to 'Back', contacts_path %>

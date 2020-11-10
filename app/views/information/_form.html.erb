@@ -11,6 +11,8 @@
     </div>
   <% end %>
 
+  <%= contact_id_setter(@contact_id, information) %>
+
   <div class="field">
     <%= form.label :telephone %>
     <%= form.number_field :telephone %>

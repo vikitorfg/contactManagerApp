@@ -15,6 +15,7 @@ class InformationController < ApplicationController
   # GET /information/new
   def new
     @information = Information.new
+    @contact_id = Contact.find(params[:new_contact_id]["contact_id"].to_i)
   end
 
   # GET /information/1/edit
@@ -69,6 +70,6 @@ class InformationController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def information_params
-      params.require(:information).permit(:telephone, :address, :email)
+      params.require(:information).permit(:telephone, :address, :email, :contact_id)
     end
 end
