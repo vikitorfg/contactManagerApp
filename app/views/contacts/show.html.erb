@@ -1,5 +1,4 @@
 <p id="notice"><%= notice %></p>
-<%= @information.inspect%>
 <p>
   <strong>Name:</strong>
   <%= @contact.name %>
@@ -8,7 +7,14 @@
   <strong>id:</strong>
   <%= @contact.id %>
 </p>
+<% @information.each do |info|%>
+  <p>
+    <%=info.telephone %>
+    <%=info.address %>
+    <%=info.email %>
+  </p>
+<% end %>
 <%= link_to 'New contact information', new_information_path(:new_contact_id => { :contact_id  => @contact.id}) %>
-
 <%= link_to 'Edit', edit_contact_path(@contact) %> |
 <%= link_to 'Back', contacts_path %>
++
