@@ -5,7 +5,7 @@ class ContactsController < ApplicationController
   # GET /contacts
   # GET /contacts.json
   def index
-    @contacts = Contact.all
+    @contacts = User.find(current_user.id).contact.all
   end
 
   # GET /contacts/1
@@ -16,7 +16,7 @@ class ContactsController < ApplicationController
 
   # GET /contacts/new
   def new
-    @contact = Contact.new    
+    @contact = Contact.new
   end
 
   # GET /contacts/1/edit
@@ -26,8 +26,9 @@ class ContactsController < ApplicationController
   # POST /contacts
   # POST /contacts.json
   def create
-    byebug
-    @contact = Contact.new(contact_params)
+    if current_user.id == contact_params[:user_id].to_i
+      @contact = Contact.new(contact_params)
+    end
 
     respond_to do |format|
       if @contact.save
@@ -38,6 +39,7 @@ class ContactsController < ApplicationController
         format.json { render json: @contact.errors, status: :unprocessable_entity }
       end
     end
+    
   end
 
   # PATCH/PUT /contacts/1
@@ -67,11 +69,15 @@ class ContactsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_contact
-      @contact = Contact.find(params[:id])
+      @contact = User.find(current_user.id).contact.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
     def contact_params
       params.require(:contact).permit(:name, :user_id)
     end
+
+    # def user_check?
+    #   current_user.id == contact_params.user_id
+    # end
 end
