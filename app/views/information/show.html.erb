@@ -1,19 +1,15 @@
 <p id="notice"><%= notice %></p>
-
 <p>
   <strong>Telephone:</strong>
   <%= @information.telephone %>
 </p>
-
 <p>
   <strong>Address:</strong>
   <%= @information.address %>
 </p>
-
 <p>
   <strong>Email:</strong>
   <%= @information.email %>
 </p>
-
 <%= link_to 'Edit', edit_information_path(@information) %> |
-<%= link_to 'Back', information_index_path %>
+<%= link_to 'Back', contact_path(@information.contact) %>

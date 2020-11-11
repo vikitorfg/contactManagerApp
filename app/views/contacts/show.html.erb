@@ -12,6 +12,9 @@
     <%=info.telephone %>
     <%=info.address %>
     <%=info.email %>
+    <%= link_to 'Show', information_path(info) %>
+    <%= link_to 'Edit', edit_information_path(info) %>
+    <%= link_to 'Destroy', info, method: :delete, data: { confirm: 'Are you sure?' } %>
   </p>
 <% end %>
 <%= link_to 'New contact information', new_information_path(:new_contact_id => { :contact_id  => @contact.id}) %>
