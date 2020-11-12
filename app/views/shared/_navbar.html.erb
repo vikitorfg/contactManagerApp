@@ -1,7 +1,9 @@
-<ul class="nav nav-pills">
-  <!-- active -->
-  <li class="nav-item">
-    <%= link_to 'contact', contacts_path, class: "nav-link #{is_active? contacts_path}" %>
-  </li>
-  <%= login_helper %>
-</ul>
+<div class="navbar">
+  <ul class="nav nav-pills">
+    <!-- active -->
+    <li class="nav-item">
+      <%= link_to 'contact', contacts_path, class: "nav-link #{is_active? contacts_path}" %>
+    </li>
+    <%= login_helper %>
+  </ul>
+</div>
