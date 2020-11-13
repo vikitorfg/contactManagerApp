@@ -11,11 +11,11 @@
   <% end %>
   <!-- pretty sure this should go somewhere else. Cant find anywhere I can make it work though -->
   <input id='user_id' name='contact[user_id]' type='hidden' value=<%=current_user.id%> />
-  <div class="field">
+  <div class="form-group">
     <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name, class: "form-control" %>
   </div>
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Create new contact", class: "btn btn-lg btn-primary btn-block" %>
   </div>
 <% end %>

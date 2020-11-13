@@ -1,25 +1,23 @@
 <p>
   <strong>Name:</strong>
-  <%= @contact.name %>
+  <%= link_to @contact.name, edit_contact_path(@contact) %>
 </p>
-<%= link_to 'New contact information', new_information_path(:new_contact_id => { :contact_id  => @contact.id}) %>
-<%= link_to 'Edit', edit_contact_path(@contact) %> |
+<%= link_to 'New contact information', new_information_path(:new_contact_id => { :contact_id  => @contact.id}) %> | 
 <%= link_to 'Back', contacts_path %>
 <div class="container">
   <div class="card-holder">
     <% @information.each do |info|%>
       <div class="card info-card" style="width: 18rem;">
-        <div class="card-body">
-          <h5 class="card-title">Comments</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        </div>
         <ul class="list-group list-group-flush">
           <li class="list-group-item">Email: <%=info.email %></li>
           <li class="list-group-item">Telephone: <%=info.telephone %></li>
           <li class="list-group-item">Address: <%=info.address %></li>
         </ul>
         <div class="card-body">
-          <%= link_to 'Show', information_path(info), class: 'card-link' %>
+          <h5 class="card-title">Comments</h5>
+          <p class="card-text">Any text tha might want to be added, still to be implemented</p>
+        </div>
+        <div class="card-body">
           <%= link_to 'Edit', edit_information_path(info), class: 'card-link' %>
           <%= link_to 'Delete', info, method: :delete, data: { confirm: 'Are you sure?' }, class: 'card-link' %>
         </div>
