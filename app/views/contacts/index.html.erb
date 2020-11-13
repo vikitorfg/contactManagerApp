@@ -1,27 +1,11 @@
 <p id="notice"><%= notice %></p>
-
 <h1>Contacts</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+<tbody>
+  <div class="list-group">
     <% @contacts.each do |contact| %>
-      <tr>
-        <td><%= contact.name %></td>
-        <td><%= link_to 'Show', contact %></td>
-        <td><%= link_to 'Edit', edit_contact_path(contact) %></td>
-        <td><%= link_to 'Destroy', contact, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <%= link_to contact.name, contact, class:'list-group-item list-group-item-action list-group-item-active' %>
     <% end %>
-  </tbody>
-</table>
-
+  </div>
+</tbody>
 <br>
-
 <%= link_to 'New Contact', new_contact_path %>
