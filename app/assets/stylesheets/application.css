@@ -88,3 +88,21 @@ body {
   margin-top: 15px;
   margin-bottom: 15px;
 }
+
+.nav-item a:hover {
+  background-color: #007bff !important;
+  color: white !important;
+}
+
+.nav-item a:visited {
+  color: #007bff;
+}
+
+a:hover {
+  background-color: #007bff;
+  color: white !important;
+}
+
+a:visited {
+  color: #007bff;
+}
